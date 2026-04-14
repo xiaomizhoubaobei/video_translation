@@ -1,0 +1,154 @@
+{
+  "auth": {
+    "error": {
+      "tool_deleted": "このツールは削除されました",
+      "tool_disabled": "このツールは無効化されました",
+      "share_code_error": "共有コードが間違っています",
+      "network_error": "ネットワークエラー",
+      "unknown_error": "不明なエラー"
+    },
+    "title": "共有コードが必要です",
+    "description": "作成者が認証を有効にしていますので、下のフィールドに共有コードを入力してください",
+    "placeholder": "共有コードを入力してください",
+    "error_message": "詳細については以下のリンクをご参照ください",
+    "confirm_button": "確認",
+    "remember_code": "共有コードを記憶"
+  },
+  "drawer": {
+    "original": "オリジナル",
+    "select_language": "言語を選択してください",
+    "subtitles": "字幕を表示",
+    "close": "閉じる",
+    "subtitle_types": "字幕タイプ",
+    "subtitle_type_vtt": "vtt",
+    "subtitle_type_srt": "srt",
+    "subtitle_type_txt": "txt",
+    "download_subtitle": "字幕をダウンロード",
+    "select_placeholder": "字幕タイプを選択してください"
+  },
+  "errors": {
+    "-10001": "302 API キーが不足しています",
+    "-10002": "このツールは無効化/削除されています。詳細は <gw>302.AI</gw> をご覧ください。",
+    "-10003": "ネットワークエラー、後でもう一度お試しください。",
+    "-10004": "アカウント残高が不足しています。独自のツールを作成するには、 <gw>302.AI</gw> をご覧ください。",
+    "-10005": "アカウントの資格情報が期限切れです。再度ログインしてください。",
+    "-10006": "アカウントの総限度額に達しました。詳細は <gw>302.AI</gw> をご覧ください。",
+    "-10007": "アカウントの日次限度額に達しました。詳細は <gw>302.AI</gw> をご覧ください。",
+    "-10008": "現在利用可能なチャネルはありません。詳細は <gw>302.AI</gw> をご覧ください。",
+    "-10009": "現在のAPI機能はサポートされていません。詳細は <gw>302.AI</gw> をご覧ください。",
+    "-10010": "リソースが見つかりませんでした。詳細は <gw>302.AI</gw> をご覧ください。",
+    "-10011": "無効なリクエスト",
+    "-10012": "この無料ツールは今時間の上限に達しました。 <gw>302.AI</gw> を訪問して自分のツールを作成してください",
+    "-1024": "AIインターフェース接続がタイムアウトしました。しばらくしてから再試行するか、<gw>302.AI</gw>に連絡してください。",
+    "default": "不明なエラー、詳細は <gw>302.AI</gw> をご覧ください。"
+
+  },
+  "footer": {
+    "ai": "内容はAIによって生成されたものであり、参考のためのみにご利用ください"
+  },
+  "header": {
+    "error": {
+      "invalid_youtube_url": "YouTube リンクが無効です。ビデオ ID を取得できません",
+      "invalid_url": "無効なリンクです",
+      "transcript_failed": "転写に失敗しました",
+      "translate_failed": "翻訳に失敗しました",
+      "network_error": "ネットワークエラー",
+      "unknown_error": "不明なエラー",
+      "get_real_url_failed": "有効なリンクの取得に失敗しました"
+    },
+    "submit": {
+      "loading": "送信中...",
+      "success": "送信に成功しました",
+      "error": "送信に失敗しました"
+    },
+    "success": {
+      "transcript": "転写成功、翻訳中です",
+      "translate": "翻訳成功。手動で字幕を有効にしてください"
+    },
+    "title": "AI動画リアルタイム翻訳",
+    "src_input_placeholder": "動画リンクを入力してください。YouTubeとBilibiliの動画リンクのみ対応しています",
+    "language_select_placeholder": "言語を選択",
+    "start_button": "開始",
+    "start_button_loading": "読み込み中...",
+    "history_button": "履歴"
+  },
+  "history": {
+    "removed": "削除に成功しました",
+    "empty": "履歴がありません",
+    "restored": "履歴が復元されました"
+  },
+  "home": {
+    "empty": {
+      "title": "読み込み中...",
+      "description": "動画情報を読み込んでいます。字幕の読み込みには時間がかかる場合がありますので、しばらくお待ちください..."
+    },
+    "share": {
+      "button": "共有",
+      "errorCreate": "作成に失敗しました。後でもう一度お試しください",
+      "success": "共有に成功しました。共有リンクをコピーしました",
+      "successIframe": "共有に成功しました。手動でコピーしてください"
+    },
+    "title": "AI動画リアルタイム翻訳"
+  },
+  "player": {
+    "caption_styles": "字幕スタイル",
+    "captions_look_like_this": "字幕のサンプル",
+    "closed-captions_off": "字幕を閉じる",
+    "closed-captions_on": "字幕を表示",
+    "display_background": "背景を表示",
+    "enter_fullscreen": "全画面表示",
+    "enter_pip": "ピクチャーインピクチャーを有効にする",
+    "exit_fullscreen": "全画面表示を終了",
+    "exit_pip": "ピクチャーインピクチャーを終了",
+    "google_cast": "Google Cast",
+    "keyboard_animations": "キーボードアニメーション",
+    "seek_backward": "戻る",
+    "seek_forward": "早送り",
+    "skip_to_live": "ライブにスキップ",
+    "text_background": "文字の背景",
+    "accessibility": "アクセシビリティ",
+    "airplay": "AirPlay",
+    "announcements": "お知らせ",
+    "audio": "音声",
+    "auto": "自動",
+    "boost": "強化",
+    "captions": "字幕",
+    "chapters": "章",
+    "color": "色",
+    "connected": "接続済み",
+    "connecting": "接続中",
+    "continue": "続行",
+    "default": "デフォルト",
+    "disabled": "無効",
+    "disconnected": "未接続",
+    "download": "ダウンロード",
+    "family": "フォントファミリー",
+    "font": "フォント",
+    "fullscreen": "全画面",
+    "live": "ライブ",
+    "loop": "ループ",
+    "mute": "ミュート",
+    "normal": "標準",
+    "off": "閉じる",
+    "opacity": "不透明度",
+    "pause": "一時停止",
+    "pip": "ピクチャーインピクチャー",
+    "play": "再生",
+    "playback": "再生",
+    "quality": "品質",
+    "replay": "再生",
+    "reset": "リセット",
+    "seek": "ジャンプ",
+    "settings": "設定",
+    "shadow": "影",
+    "size": "サイズ",
+    "speed": "速度",
+    "text": "文字",
+    "track": "トラック",
+    "unmute": "ミュート解除",
+    "volume": "音量"
+  },
+  "toolInfo": {
+    "title": "AI動画リアルタイム翻訳について"
+  }
+}

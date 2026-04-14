@@ -1,0 +1,153 @@
+{
+  "auth": {
+    "confirm_button": "Confirmar",
+    "description": "El creador ha habilitado la verificación, por favor ingrese el código de compartición a continuación",
+    "error": {
+      "network_error": "Error de red",
+      "share_code_error": "Error en el código de compartición",
+      "tool_deleted": "Esta herramienta ha sido eliminada",
+      "tool_disabled": "Esta herramienta ha sido deshabilitada",
+      "unknown_error": "Error desconocido"
+    },
+    "error_message": "Para más información, visite",
+    "placeholder": "Ingrese el código de compartición",
+    "remember_code": "Recordar código de compartición",
+    "title": "Se necesita código de compartición"
+  },
+  "drawer": {
+    "close": "Cerrar",
+    "download_subtitle": "Descargar subtítulos",
+    "original": "Primitivo",
+    "select_language": "Seleccionar idioma",
+    "select_placeholder": "Seleccionar tipo de subtítulo",
+    "subtitle_type_srt": "srt",
+    "subtitle_type_txt": "txt",
+    "subtitle_type_vtt": "vtt",
+    "subtitle_types": "Tipos de subtítulos",
+    "subtitles": "Ver subtítulos"
+  },
+  "errors": {
+    "-10001": "Credenciales de cuenta perdidas, por favor <relogin>reloguee</relogin>",
+    "-10002": "Esta herramienta ha sido deshabilitada/eliminada, para más información visite <gw>302.AI</gw>",
+    "-10003": "Error de red, por favor intente de nuevo más tarde",
+    "-10004": "Saldo insuficiente en la cuenta, cree su propia herramienta, para más información visite <gw>302.AI</gw>",
+    "-10005": "Credenciales de cuenta expiradas, por favor <relogin>reloguee</relogin>",
+    "-10006": "El límite total de la cuenta ha sido alcanzado, para más información visite <gw>302.AI</gw>",
+    "-10007": "El límite diario de la cuenta ha sido alcanzado, para más información visite <gw>302.AI</gw>",
+    "-10008": "No hay canales disponibles actualmente, para más información visite <gw>302.AI</gw>",
+    "-10009": "Función API no soportada actualmente, para más información visite <gw>302.AI</gw>",
+    "-10010": "No se puede encontrar el recurso, visite <gw>302.AI</gw> ​​​​para obtener más información",
+    "-10011": "Solicitud no válida",
+    "-10012": "El límite gratuito de esta herramienta para esta hora ha sido alcanzado, por favor visite <gw>302.AI</gw> para generar su propia herramienta",
+    "-1024": "Conexión al servidor AI agotada, por favor intente de nuevo más tarde o contacte a <gw>302.AI</gw>",
+    "default": "Error desconocido, para más información visite <gw>302.AI</gw>"
+  },
+  "footer": {
+    "ai": "Contenido generado por IA, solo para referencia"
+  },
+  "header": {
+    "error": {
+      "get_real_url_failed": "Error al obtener URL real",
+      "invalid_url": "URL no válida",
+      "invalid_youtube_url": "Enlace de YouTube no válido, no se puede obtener la identificación del video",
+      "network_error": "Error de red",
+      "transcript_failed": "Transcripción fallida",
+      "translate_failed": "Traducción fallida",
+      "unknown_error": "Error desconocido"
+    },
+    "history_button": "Historial",
+    "language_select_placeholder": "Selección de idioma",
+    "src_input_placeholder": "Ingrese el enlace del video, enlaces de soporte en formatos YouTube, Bilibili, Douyin, Tiktok y mp3.",
+    "start_button": "Comenzar",
+    "start_button_loading": "Cargando...",
+    "submit": {
+      "error": "Error al enviar",
+      "loading": "Enviando...",
+      "success": "Enviado con éxito"
+    },
+    "success": {
+      "transcript": "Transcripción exitosa, traduciendo",
+      "translate": "Traducción exitosa, por favor active los subtítulos manualmente"
+    },
+    "title": "Traducción de video en tiempo real"
+  },
+  "history": {
+    "empty": "No hay historial",
+    "removed": "Eliminado con éxito",
+    "restored": "Historial restaurado"
+  },
+  "home": {
+    "empty": {
+      "description": "Cargando información del video, los subtítulos pueden tardar en cargar, por favor sea paciente...",
+      "title": "Cargando..."
+    },
+    "share": {
+      "button": "Compartir",
+      "errorCreate": "Creación fallida, por favor intente más tarde",
+      "success": "Compartido con éxito, el enlace de compartido se ha copiado",
+      "successIframe": "Compartido con éxito, por favor copie el enlace de compartido manualmente"
+    },
+    "title": "Traducción de video en tiempo real"
+  },
+  "player": {
+    "accessibility": "Accesibilidad",
+    "airplay": "AirPlay",
+    "announcements": "Anuncios",
+    "audio": "Audio",
+    "auto": "Automático",
+    "boost": "Aumentar",
+    "caption_styles": "Estilos de subtítulos",
+    "captions": "Subtítulos",
+    "captions_look_like_this": "Ejemplo de subtítulos",
+    "chapters": "Capítulos",
+    "closed-captions_off": "Desactivar subtítulos",
+    "closed-captions_on": "Activar subtítulos",
+    "color": "Color",
+    "connected": "Conectado",
+    "connecting": "Conectando",
+    "continue": "Continuar",
+    "default": "Predeterminado",
+    "disabled": "Deshabilitado",
+    "disconnected": "Desconectado",
+    "display_background": "Mostrar fondo",
+    "download": "Descargar",
+    "enter_fullscreen": "Entrar en pantalla completa",
+    "enter_pip": "Entrar en modo imagen sobre imagen",
+    "exit_fullscreen": "Salir de pantalla completa",
+    "exit_pip": "Salir de modo imagen sobre imagen",
+    "family": "Familia de fuentes",
+    "font": "Fuente",
+    "fullscreen": "Pantalla completa",
+    "google_cast": "Google Cast",
+    "keyboard_animations": "Animaciones del teclado",
+    "live": "En vivo",
+    "loop": "Repetir",
+    "mute": "Silenciar",
+    "normal": "Normal",
+    "off": "Apagar",
+    "opacity": "Opacidad",
+    "pause": "Pausa",
+    "pip": "PiP",
+    "play": "Reproducir",
+    "playback": "Reproducción",
+    "quality": "Calidad",
+    "replay": "Repetir",
+    "reset": "Reiniciar",
+    "seek": "Buscar",
+    "seek_backward": "Retroceder",
+    "seek_forward": "Avanzar",
+    "settings": "Configuraciones",
+    "shadow": "Sombra",
+    "size": "Tamaño",
+    "skip_to_live": "Ir al en vivo",
+    "speed": "Velocidad",
+    "text": "Texto",
+    "text_background": "Fondo de texto",
+    "track": "Pista",
+    "unmute": "Desactivar silencio",
+    "volume": "Volumen"
+  },
+  "toolInfo": {
+    "title": "Acerca de Traducción de video en tiempo real"
+  }
+}

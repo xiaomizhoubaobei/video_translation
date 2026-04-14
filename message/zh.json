@@ -1,0 +1,153 @@
+{
+  "auth": {
+    "confirm_button": "确认",
+    "description": "创建者开启了验证, 请在下方填入分享码",
+    "error": {
+      "network_error": "网络错误",
+      "share_code_error": "分享码错误",
+      "tool_deleted": "该工具已删除",
+      "tool_disabled": "该工具已禁用",
+      "unknown_error": "未知错误"
+    },
+    "error_message": "更多请访问",
+    "placeholder": "请输入分享码",
+    "remember_code": "记住分享码",
+    "title": "需要分享码"
+  },
+  "drawer": {
+    "close": "关闭",
+    "download_subtitle": "下载字幕",
+    "original": "原始",
+    "select_language": "选择语言",
+    "select_placeholder": "选择字幕类型",
+    "subtitle_type_srt": "srt",
+    "subtitle_type_txt": "txt",
+    "subtitle_type_vtt": "vtt",
+    "subtitle_types": "字幕类型",
+    "subtitles": "查看字幕"
+  },
+  "errors": {
+    "-10001": "缺少 302 API 密钥",
+    "-10002": "该工具已禁用/删除，更多请访问 <gw>302.AI</gw>",
+    "-10003": "网络错误，请稍后重试",
+    "-10004": "账户余额不足，创建属于自己的工具，更多请访问 <gw>302.AI</gw>",
+    "-10005": "账户凭证过期，请<relogin>重新登录</relogin>",
+    "-10006": "账户总额度已达上限，更多请访问 <gw>302.AI</gw>",
+    "-10007": "账户日额度已达上限，更多请访问 <gw>302.AI</gw>",
+    "-10008": "当前无可用通道，更多请访问 <gw>302.AI</gw>",
+    "-10009": "不支持当前API功能，更多请访问 <gw>302.AI</gw>",
+    "-10010": "未能找到资源，更多请访问 <gw>302.AI</gw>",
+    "-10011": "无效的请求",
+    "-10012": "该免费工具在本小时的额度已达上限，请访问 <gw>302.AI</gw> 生成属于自己的工具",
+    "-1024": "AI接口连接超时， 请稍后重试或者联系 <gw>302.AI</gw>",
+    "default": "未知错误，更多请访问 <gw>302.AI</gw>"
+  },
+  "footer": {
+    "ai": "内容由AI生成，仅供参考"
+  },
+  "header": {
+    "error": {
+      "get_real_url_failed": "获取真实链接失败",
+      "invalid_url": "无效的链接",
+      "invalid_youtube_url": "无效的YouTube链接，无法获取视频id",
+      "network_error": "网络错误",
+      "transcript_failed": "转录失败",
+      "translate_failed": "翻译失败",
+      "unknown_error": "未知错误"
+    },
+    "history_button": "历史",
+    "language_select_placeholder": "语言选择",
+    "src_input_placeholder": "输入视频链接，支持 YouTube、Bilibili、抖音、Tiktok和mp3格式的链接",
+    "start_button": "开始",
+    "start_button_loading": "加载中...",
+    "submit": {
+      "error": "提交失败",
+      "loading": "提交中...",
+      "success": "提交成功"
+    },
+    "success": {
+      "transcript": "转录成功，正在翻译",
+      "translate": "翻译成功，请手动开启字幕"
+    },
+    "title": "视频实时翻译"
+  },
+  "history": {
+    "empty": "没有历史记录",
+    "removed": "删除成功",
+    "restored": "历史记录已恢复"
+  },
+  "home": {
+    "empty": {
+      "description": "正在为您加载视频信息，视频字幕加载可能需要一段时间，请耐心等待...",
+      "title": "加载中..."
+    },
+    "share": {
+      "button": "分享",
+      "errorCreate": "创建失败，请稍后重试",
+      "success": "分享成功，已复制分享链接",
+      "successIframe": "分享成功，请手动复制"
+    },
+    "title": "视频实时翻译"
+  },
+  "player": {
+    "accessibility": "辅助功能",
+    "airplay": "AirPlay",
+    "announcements": "公告",
+    "audio": "音频",
+    "auto": "自动",
+    "boost": "增强",
+    "caption_styles": "字幕样式",
+    "captions": "字幕",
+    "captions_look_like_this": "字幕示例",
+    "chapters": "章节",
+    "closed-captions_off": "关闭字幕",
+    "closed-captions_on": "开启字幕",
+    "color": "颜色",
+    "connected": "已连接",
+    "connecting": "连接中",
+    "continue": "继续",
+    "default": "默认",
+    "disabled": "禁用",
+    "disconnected": "未连接",
+    "display_background": "显示背景",
+    "download": "下载",
+    "enter_fullscreen": "进入全屏",
+    "enter_pip": "进入画中画",
+    "exit_fullscreen": "退出全屏",
+    "exit_pip": "退出画中画",
+    "family": "字体系列",
+    "font": "字体",
+    "fullscreen": "全屏",
+    "google_cast": "谷歌投屏",
+    "keyboard_animations": "键盘动画",
+    "live": "直播",
+    "loop": "循环",
+    "mute": "静音",
+    "normal": "正常",
+    "off": "关闭",
+    "opacity": "不透明度",
+    "pause": "暂停",
+    "pip": "画中画",
+    "play": "播放",
+    "playback": "播放",
+    "quality": "质量",
+    "replay": "重播",
+    "reset": "重置",
+    "seek": "跳转",
+    "seek_backward": "回退",
+    "seek_forward": "快进",
+    "settings": "设置",
+    "shadow": "阴影",
+    "size": "大小",
+    "skip_to_live": "跳至直播",
+    "speed": "速度",
+    "text": "文字",
+    "text_background": "文字背景",
+    "track": "轨道",
+    "unmute": "取消静音",
+    "volume": "音量"
+  },
+  "toolInfo": {
+    "title": "关于 视频实时翻译"
+  }
+}
