@@ -1,9 +1,7 @@
-FROM node:24.14-alpine AS base
+FROM node:24.14 AS base
 
 # Install dependencies only when needed
 FROM base AS deps
-# See https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine for why libc6-compat may be needed
-RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Install dependencies using yarn
