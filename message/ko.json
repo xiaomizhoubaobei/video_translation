@@ -1,0 +1,153 @@
+{
+  "auth": {
+    "confirm_button": "확인",
+    "description": "생성자가 인증을 설정했습니다. 아래에 공유 코드를 입력해 주세요",
+    "error": {
+      "network_error": "네트워크 오류",
+      "share_code_error": "공유 코드 오류",
+      "tool_deleted": "도구가 삭제되었습니다",
+      "tool_disabled": "도구가 비활성화되었습니다",
+      "unknown_error": "알 수 없는 오류"
+    },
+    "error_message": "더 많은 정보를 원하시면 방문해 주세요",
+    "placeholder": "공유 코드를 입력해 주세요",
+    "remember_code": "공유 코드 기억",
+    "title": "공유 코드 필요"
+  },
+  "drawer": {
+    "close": "닫기",
+    "download_subtitle": "자막 다운로드",
+    "original": "원래의",
+    "select_language": "언어 선택",
+    "select_placeholder": "자막 유형 선택",
+    "subtitle_type_srt": "srt",
+    "subtitle_type_txt": "txt",
+    "subtitle_type_vtt": "vtt",
+    "subtitle_types": "자막 유형",
+    "subtitles": "자막 보기"
+  },
+  "errors": {
+    "-10001": "계정 인증 정보가 사라졌습니다. <relogin>다시 로그인</relogin>해 주세요",
+    "-10002": "이 도구는 비활성화되었거나 삭제되었습니다. 더 많은 정보를 원하시면 <gw>302.AI</gw>를 방문해 주세요",
+    "-10003": "네트워크 오류, 잠시 후 다시 시도해 주세요",
+    "-10004": "계정 잔액이 부족합니다. 자신의 도구를 만들려면 더 많은 정보를 <gw>302.AI</gw>에서 확인해 주세요",
+    "-10005": "계정 인증 정보가 만료되었습니다. <relogin>다시 로그인</relogin>해 주세요",
+    "-10006": "계정 총 할당량이 초과되었습니다. 더 많은 정보를 <gw>302.AI</gw>에서 확인해 주세요",
+    "-10007": "계정 일일 할당량이 초과되었습니다. 더 많은 정보를 <gw>302.AI</gw>에서 확인해 주세요",
+    "-10008": "현재 사용할 수 있는 채널이 없습니다. 더 많은 정보를 <gw>302.AI</gw>에서 확인해 주세요",
+    "-10009": "현재 API 기능을 지원하지 않습니다. 더 많은 정보를 <gw>302.AI</gw>에서 확인해 주세요",
+    "-10010": "리소스를 찾을 수 없습니다. 자세한 내용은 <gw>302.AI</gw>를 방문하세요.",
+    "-10011": "잘못된 요청",
+    "-10012": "이 무료 도구의 시간당 할당량이 초과되었습니다. <gw>302.AI</gw>에서 자신의 도구를 생성해 주세요",
+    "-1024": "AI 인터페이스 연결 시간이 초과되었습니다. 잠시 후 다시 시도하시거나 <gw>302.AI</gw>에 문의해 주세요",
+    "default": "알 수 없는 오류. 더 많은 정보를 원하시면 <gw>302.AI</gw>를 방문해 주세요"
+  },
+  "footer": {
+    "ai": "내용은 AI에 의해 생성되었으며, 단지 참고용입니다"
+  },
+  "header": {
+    "error": {
+      "get_real_url_failed": "실제 링크 가져오기 실패",
+      "invalid_url": "잘못된 링크",
+      "invalid_youtube_url": "잘못된 YouTube 링크입니다. 동영상 ID를 가져올 수 없습니다.",
+      "network_error": "네트워크 오류",
+      "transcript_failed": "전사 실패",
+      "translate_failed": "번역 실패",
+      "unknown_error": "알 수 없는 오류"
+    },
+    "history_button": "기록",
+    "language_select_placeholder": "언어 선택",
+    "src_input_placeholder": "YouTube, Bilibili, Douyin, Tiktok 및 mp3 형식의 링크를 지원하는 비디오 링크를 입력하십시오.",
+    "start_button": "시작",
+    "start_button_loading": "로딩 중...",
+    "submit": {
+      "error": "제출 실패",
+      "loading": "제출 중...",
+      "success": "제출 성공"
+    },
+    "success": {
+      "transcript": "전사 성공, 번역 중",
+      "translate": "번역 성공, 자막을 수동으로 켜 주세요"
+    },
+    "title": "비디오 실시간 번역"
+  },
+  "history": {
+    "empty": "기록이 없습니다",
+    "removed": "삭제 완료",
+    "restored": "기록이 복원되었습니다"
+  },
+  "home": {
+    "empty": {
+      "description": "비디오 정보를 로딩 중입니다. 비디오 자막 로딩에는 시간이 걸릴 수 있으니, 잠시만 기다려 주세요...",
+      "title": "로딩 중..."
+    },
+    "share": {
+      "button": "공유",
+      "errorCreate": "생성 실패, 잠시 후 다시 시도해 주세요",
+      "success": "공유 성공, 공유 링크가 복사되었습니다",
+      "successIframe": "공유 성공, 공유 링크를 수동으로 복사해 주세요"
+    },
+    "title": "비디오 실시간 번역"
+  },
+  "player": {
+    "accessibility": "접근성",
+    "airplay": "AirPlay",
+    "announcements": "공지사항",
+    "audio": "오디오",
+    "auto": "자동",
+    "boost": "증강",
+    "caption_styles": "자막 스타일",
+    "captions": "자막",
+    "captions_look_like_this": "자막 예시",
+    "chapters": "챕터",
+    "closed-captions_off": "자막 끄기",
+    "closed-captions_on": "자막 켜기",
+    "color": "색상",
+    "connected": "연결됨",
+    "connecting": "연결 중",
+    "continue": "계속",
+    "default": "기본",
+    "disabled": "비활성화",
+    "disconnected": "연결 끊김",
+    "display_background": "배경 표시",
+    "download": "다운로드",
+    "enter_fullscreen": "전체 화면",
+    "enter_pip": "화면 속 화면",
+    "exit_fullscreen": "전체 화면 나가기",
+    "exit_pip": "화면 속 화면 나가기",
+    "family": "글꼴 계열",
+    "font": "글꼴",
+    "fullscreen": "전체 화면",
+    "google_cast": "구글 캐스트",
+    "keyboard_animations": "키보드 애니메이션",
+    "live": "라이브",
+    "loop": "반복",
+    "mute": "음소거",
+    "normal": "정상",
+    "off": "끄기",
+    "opacity": "불투명도",
+    "pause": "일시 정지",
+    "pip": "화면 속 화면",
+    "play": "재생",
+    "playback": "재생",
+    "quality": "품질",
+    "replay": "재시작",
+    "reset": "초기화",
+    "seek": "이동",
+    "seek_backward": "뒤로 감기",
+    "seek_forward": "앞으로 감기",
+    "settings": "설정",
+    "shadow": "그림자",
+    "size": "크기",
+    "skip_to_live": "실시간으로 이동",
+    "speed": "속도",
+    "text": "텍스트",
+    "text_background": "글자 배경",
+    "track": "트랙",
+    "unmute": "음소거 해제",
+    "volume": "음량"
+  },
+  "toolInfo": {
+    "title": "비디오 실시간 번역에 대하여"
+  }
+}

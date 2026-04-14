@@ -1,0 +1,153 @@
+{
+  "auth": {
+    "confirm_button": "Bestätigen",
+    "description": "Der Ersteller hat die Verifizierung aktiviert, bitte geben Sie den Freigabecode unten ein",
+    "error": {
+      "network_error": "Netzwerkfehler",
+      "share_code_error": "Fehlerhafter Freigabecode",
+      "tool_deleted": "Dieses Tool wurde gelöscht",
+      "tool_disabled": "Dieses Tool wurde deaktiviert",
+      "unknown_error": "Unbekannter Fehler"
+    },
+    "error_message": "Weitere Informationen finden Sie unter",
+    "placeholder": "Bitte Freigabecode eingeben",
+    "remember_code": "Freigabecode merken",
+    "title": "Freigabecode erforderlich"
+  },
+  "drawer": {
+    "close": "Schließen",
+    "download_subtitle": "Untertitel herunterladen",
+    "original": "Original",
+    "select_language": "Sprache auswählen",
+    "select_placeholder": "Untertitel-Typ wählen",
+    "subtitle_type_srt": "srt",
+    "subtitle_type_txt": "txt",
+    "subtitle_type_vtt": "vtt",
+    "subtitle_types": "Untertitel-Typen",
+    "subtitles": "Untertitel anzeigen"
+  },
+  "errors": {
+    "-10001": "Kontozertifikat verloren, bitte <relogin>neu anmelden</relogin>",
+    "-10002": "Dieses Tool wurde deaktiviert/gelöscht, mehr unter <gw>302.AI</gw>",
+    "-10003": "Netzwerkfehler, bitte versuchen Sie es später erneut",
+    "-10004": "Kontoguthaben unzureichend, erstellen Sie Ihr eigenes Tool, mehr unter <gw>302.AI</gw>",
+    "-10005": "Kontozertifikat abgelaufen, bitte <relogin>neu anmelden</relogin>",
+    "-10006": "Kontogesamtkontingent erreicht, mehr unter <gw>302.AI</gw>",
+    "-10007": "Tägliches Kontokontingent erreicht, mehr unter <gw>302.AI</gw>",
+    "-10008": "Derzeit kein verfügbarer Kanal, mehr unter <gw>302.AI</gw>",
+    "-10009": "Funktion der aktuellen API nicht unterstützt, mehr unter <gw>302.AI</gw>",
+    "-10010": "Die Ressource konnte nicht gefunden werden. Weitere Informationen finden Sie unter <gw>302.AI</gw>",
+    "-10011": "Ungültige Anfrage",
+    "-10012": "Das Stundenkontingent für dieses kostenlose Tool wurde erreicht, bitte besuchen Sie <gw>302.AI</gw>, um Ihr eigenes Tool zu erstellen",
+    "-1024": "Verbindung zum AI-Interface zeitüberschritten, bitte später erneut versuchen oder <gw>302.AI</gw> kontaktieren",
+    "default": "Unbekannter Fehler, mehr unter <gw>302.AI</gw>"
+  },
+  "footer": {
+    "ai": "Inhalt wurde von KI generiert und dient nur als Referenz"
+  },
+  "header": {
+    "error": {
+      "get_real_url_failed": "Echter Link konnte nicht abgerufen werden",
+      "invalid_url": "Ungültiger Link",
+      "invalid_youtube_url": "Ungültiger YouTube-Link, Video-ID konnte nicht abgerufen werden",
+      "network_error": "Netzwerkfehler",
+      "transcript_failed": "Transkription fehlgeschlagen",
+      "translate_failed": "Übersetzung fehlgeschlagen",
+      "unknown_error": "Unbekannter Fehler"
+    },
+    "history_button": "Verlauf",
+    "language_select_placeholder": "Sprachauswahl",
+    "src_input_placeholder": "Geben Sie den Videolink ein und unterstützen Sie Links in den Formaten YouTube, Bilibili, Douyin, Tiktok und MP3",
+    "start_button": "Starten",
+    "start_button_loading": "Lädt...",
+    "submit": {
+      "error": "Senden fehlgeschlagen",
+      "loading": "Wird gesendet...",
+      "success": "Erfolgreich gesendet"
+    },
+    "success": {
+      "transcript": "Transkription erfolgreich, übersetzt wird",
+      "translate": "Übersetzung erfolgreich, bitte Untertitel manuell aktivieren"
+    },
+    "title": "Echtzeit-Videoübersetzung"
+  },
+  "history": {
+    "empty": "Kein Verlauf",
+    "removed": "Erfolgreich gelöscht",
+    "restored": "Verlauf wurde wiederhergestellt"
+  },
+  "home": {
+    "empty": {
+      "description": "Lade Videoinformationen, das Laden der Video-Untertitel kann einige Zeit in Anspruch nehmen, bitte haben Sie Geduld...",
+      "title": "Lädt..."
+    },
+    "share": {
+      "button": "Teilen",
+      "errorCreate": "Erstellung fehlgeschlagen, bitte versuchen Sie es später erneut",
+      "success": "Teilen erfolgreich, der Teilungslink wurde kopiert",
+      "successIframe": "Teilen erfolgreich, bitte kopieren Sie den Teilungslink manuell"
+    },
+    "title": "Echtzeit-Videoübersetzung"
+  },
+  "player": {
+    "accessibility": "Barrierefreiheit",
+    "airplay": "AirPlay",
+    "announcements": "Ankündigungen",
+    "audio": "Audio",
+    "auto": "Automatisch",
+    "boost": "Verstärken",
+    "caption_styles": "Untertitelstile",
+    "captions": "Untertitel",
+    "captions_look_like_this": "Untertitel-Beispiel",
+    "chapters": "Kapitel",
+    "closed-captions_off": "Untertitel aus",
+    "closed-captions_on": "Untertitel an",
+    "color": "Farbe",
+    "connected": "Verbunden",
+    "connecting": "Verbindung wird hergestellt",
+    "continue": "Fortsetzen",
+    "default": "Standard",
+    "disabled": "Deaktiviert",
+    "disconnected": "Getrennt",
+    "display_background": "Hintergrund anzeigen",
+    "download": "Herunterladen",
+    "enter_fullscreen": "Vollbildmodus starten",
+    "enter_pip": "Bild-in-Bild-Modus starten",
+    "exit_fullscreen": "Vollbildmodus beenden",
+    "exit_pip": "Bild-in-Bild-Modus beenden",
+    "family": "Schriftfamilie",
+    "font": "Schriftart",
+    "fullscreen": "Vollbild",
+    "google_cast": "Google Cast",
+    "keyboard_animations": "Tastaturanimerungen",
+    "live": "Live",
+    "loop": "Schleife",
+    "mute": "Stumm",
+    "normal": "Normal",
+    "off": "Aus",
+    "opacity": "Deckkraft",
+    "pause": "Pause",
+    "pip": "Bild-in-Bild",
+    "play": "Abspielen",
+    "playback": "Wiedergabe",
+    "quality": "Qualität",
+    "replay": "Erneut abspielen",
+    "reset": "Zurücksetzen",
+    "seek": "Suchen",
+    "seek_backward": "Zurückspulen",
+    "seek_forward": "Vorspulen",
+    "settings": "Einstellungen",
+    "shadow": "Schatten",
+    "size": "Größe",
+    "skip_to_live": "Zum Livestream springen",
+    "speed": "Geschwindigkeit",
+    "text": "Text",
+    "text_background": "Text-Hintergrund",
+    "track": "Spur",
+    "unmute": "Stummschaltung aufheben",
+    "volume": "Lautstärke"
+  },
+  "toolInfo": {
+    "title": "Über Echtzeit-Videoübersetzung"
+  }
+}
