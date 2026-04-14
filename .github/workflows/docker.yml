@@ -89,10 +89,13 @@ jobs:
                 # 关闭所有默认生成器
                 flavor: |
                   latest=auto
-                # 只保留版本号标签和 latest 标签
+                # 保留版本号标签和依赖版本标签
                 tags: |
                   type=raw,value=${{ steps.version.outputs.VERSION }}
-                  type=raw,value=latest,enable={{is_default_branch}}
+                  type=raw,value=node-${{ steps.deps.outputs.NODE_VERSION }}
+                  type=raw,value=react-${{ steps.deps.outputs.REACT_VERSION }}
+                  type=raw,value=yarn-${{ steps.deps.outputs.YARN_VERSION }}
+                  type=raw,value=typescript-${{ steps.deps.outputs.TYPESCRIPT_VERSION }}
 
             - name: 构建并推送（主流容器注册表，支持 OCI）
               id: build
@@ -103,7 +106,7 @@ jobs:
                 push: true
                 tags: ${{ steps.meta.outputs.tags }}
                 labels: |
-                  org.opencontainers.image.source=https://github.com/302ai/302_video_translation
+                  org.opencontainers.image.source=https://github.com/xiaomizhoubaobei/video_translation
                   org.opencontainers.image.description=AI Video Real-time Translation - 视频字幕实时翻译
                   org.opencontainers.image.licenses=AGPL-3.0
                   org.opencontainers.image.title=AI Video Real-time Translation
@@ -111,9 +114,9 @@ jobs:
                   org.opencontainers.image.version=${{ steps.version.outputs.VERSION }}
                   org.opencontainers.image.created=${{ github.event.head_commit.timestamp }}
                   org.opencontainers.image.revision=${{ github.sha }}
-                  org.opencontainers.image.vendor=302.AI
+                  org.opencontainers.image.vendor=xiaomizhoubaobei
                   org.opencontainers.image.authors=qixiaoxin@stu.sqxy.edu.cn
-                  build.url=https://github.com/302ai/302_video_translation/actions/runs/${{ github.run_id }}
+                  build.url=https://github.com/xiaomizhoubaobei/video_translation/actions/runs/${{ github.run_id }}
                 cache-from: type=gha
                 cache-to: type=gha,mode=max
                 provenance: true
