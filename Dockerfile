@@ -1,4 +1,4 @@
-FROM node:24.14 AS base
+FROM node:25.9 AS base
 
 # Install dependencies only when needed
 FROM base AS deps
