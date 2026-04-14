@@ -1,4 +1,4 @@
-FROM node:20.14-alpine AS base
+FROM node:24.14-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -6,23 +6,10 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Install dependencies according to preferred package manager
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+# Install dependencies using yarn
+COPY package.json yarn.lock* ./
 
-RUN \
-  if [ -f yarn.lock ]; then \
-  corepack enable && \
-  yarn --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then \
-  npm config set registry https://registry.npmmirror.com && \
-  npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then \
-  corepack enable pnpm && \
-  pnpm config set registry https://registry.npmmirror.com && \
-  pnpm i --frozen-lockfile; \
-  else \
-  echo "No lock file found." && exit 1; \
-  fi
+RUN corepack enable && yarn --frozen-lockfile
 
 # Rebuild source code only when needed
 FROM base AS builder
@@ -37,12 +24,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 
-RUN \
-  if [ -f yarn.lock ]; then corepack enable yarn && yarn run build; \
-  elif [ -f package-lock.json ]; then npm run build; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
-  else echo "No lock file found." && exit 1; \
-  fi;
+RUN corepack enable yarn && yarn run build
 
 
 # Production image, copy all files and run next

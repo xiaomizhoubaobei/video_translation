@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "next start",
-    "dev": "env-cmd -f .env next dev",
-    "build": "env-cmd -f .env next build --no-lint"
+    "dev": "next dev",
+    "build": "next build --no-lint"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.46",
