@@ -1,32 +1,53 @@
 "use server"
 
 /**
+ * Sanitizes a string for safe use in error messages.
+ * Replaces control characters to prevent log injection.
+ */
+function sanitizeForLog(input: string): string {
+  return input.replace(/[\x00-\x1F\x7F]/g, (char) => {
+    return `\\x${char.charCodeAt(0).toString(16).padStart(2, '0')}`
+  })
+}
+
+/**
+ * Validates if an IPv4 address string has valid octet ranges (0-255).
+ */
+function isValidIPv4Octets(octets: string[]): boolean {
+  return octets.every(octet => {
+    const num = Number(octet)
+    return num >= 0 && num <= 255 && String(num) === octet
+  })
+}
+
+/**
  * Checks if a hostname is a private or internal address.
  * @param hostname - The hostname to check.
  * @returns True if the hostname is private/internal, false otherwise.
  */
 function isPrivateHost(hostname: string): boolean {
-  const lowerHost = hostname.toLowerCase()
+  // Normalize hostname - remove surrounding brackets for IPv6
+  const normalizedHost = hostname.replace(/^\[|\]$/g, '').toLowerCase()
 
   // Block localhost and loopback
-  if (lowerHost === 'localhost' || lowerHost === '127.0.0.1' || lowerHost === '::1') {
+  if (normalizedHost === 'localhost' || normalizedHost === '127.0.0.1' || normalizedHost === '::1') {
     return true
   }
 
   // Block 0.0.0.0
-  if (lowerHost === '0.0.0.0') {
-    return true
-  }
-
-  // Block IPv6 loopback and internal
-  if (lowerHost === '[::1]' || lowerHost === '[::]') {
+  if (normalizedHost === '0.0.0.0') {
     return true
   }
 
   // Block private IPv4 ranges: 10.x.x.x, 172.16-31.x.x, 192.168.x.x
-  const ipv4Match = lowerHost.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/)
+  const ipv4Match = normalizedHost.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/)
   if (ipv4Match) {
-    const [, a, b] = ipv4Match.map(Number)
+    const octets = ipv4Match.slice(1)
+    // Validate all octets are valid (0-255)
+    if (!isValidIPv4Octets(octets)) {
+      return false
+    }
+    const [a, b] = octets.map(Number)
     if (a === 10) return true
     if (a === 172 && b >= 16 && b <= 31) return true
     if (a === 192 && b === 168) return true
@@ -35,9 +56,40 @@ function isPrivateHost(hostname: string): boolean {
     return false
   }
 
+  // Check for IPv6 addresses
+  if (normalizedHost.includes(':')) {
+    // Block IPv6 loopback and unspecified
+    if (normalizedHost === '::1' || normalizedHost === '::' || normalizedHost === '::0') {
+      return true
+    }
+
+    // Block IPv6 Unique Local Addresses (fc00::/7) - fc00:: to fdff:ffff:...
+    if (/^f[cd][0-9a-f]{2}:/i.test(normalizedHost)) {
+      return true
+    }
+
+    // Block IPv6 Link-Local (fe80::/10)
+    if (/^fe[89ab][0-9a-f]:/i.test(normalizedHost)) {
+      return true
+    }
+
+    // Block IPv6 Site-Local (deprecated but still used: fec0::/10)
+    if (/^fe[cde][0-9a-f]:/i.test(normalizedHost)) {
+      return true
+    }
+
+    // Block IPv4-mapped IPv6 addresses (::ffff:127.0.0.1, etc.)
+    const ipv4MappedMatch = normalizedHost.match(/^::ffff:(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})$/i)
+    if (ipv4MappedMatch) {
+      return isPrivateHost(ipv4MappedMatch[1])
+    }
+
+    return false
+  }
+
   // Block common internal TLDs
   const internalSuffixes = ['.internal', '.local', '.localhost', '.corp', '.home']
-  if (internalSuffixes.some(suffix => lowerHost.endsWith(suffix))) {
+  if (internalSuffixes.some(suffix => normalizedHost.endsWith(suffix))) {
     return true
   }
 
@@ -47,9 +99,20 @@ function isPrivateHost(hostname: string): boolean {
 /**
  * Validates a URL to prevent SSRF attacks.
  * @param urlString - The URL to validate.
- * @throws Error if the URL is invalid or points to a private/internal address.
+ * @throws Error if the URL is invalid, too long, contains invalid characters,
+ *         has unsupported protocol, or points to a private/internal address.
  */
 function validateUrl(urlString: string): string {
+  // URL length validation to prevent DoS
+  if (urlString.length > 2000) {
+    throw new Error('URL exceeds maximum length')
+  }
+
+  // Character validation to prevent control characters and injection
+  if (/[^\x20-\x7E]/.test(urlString)) {
+    throw new Error('URL contains invalid characters')
+  }
+
   let parsedUrl: URL
   try {
     parsedUrl = new URL(urlString)
@@ -57,15 +120,15 @@ function validateUrl(urlString: string): string {
     throw new Error('Invalid URL format')
   }
 
-  // Only allow http and https schemes
-  if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
-    throw new Error(`Unsupported URL protocol: ${parsedUrl.protocol}`)
+  // Only allow http and https schemes (case-insensitive per RFC 3986)
+  if (!/^https?:$/i.test(parsedUrl.protocol)) {
+    throw new Error(`Unsupported URL protocol: ${sanitizeForLog(parsedUrl.protocol)}`)
   }
 
   // Block private/internal hostnames
   const hostname = parsedUrl.hostname
   if (isPrivateHost(hostname)) {
-    throw new Error(`Request to internal address is not allowed: ${hostname}`)
+    throw new Error(`Request to internal address is not allowed: ${sanitizeForLog(hostname)}`)
   }
 
   return parsedUrl.toString()
@@ -93,8 +156,10 @@ export async function isVideoUrlUsable(url: string): Promise<boolean> {
 
   try {
     // Attempt to send a HEAD request
+    // redirect: 'error' prevents automatic redirect following to avoid SSRF via redirection
     let response = await fetch(safeUrl, {
       method: 'HEAD',
+      redirect: 'error',
     })
 
     // If the HEAD request is rejected (e.g., 405 Method Not Allowed), try a partial GET request
@@ -102,6 +167,7 @@ export async function isVideoUrlUsable(url: string): Promise<boolean> {
       // Send a GET request with a Range header to avoid downloading the entire video
       response = await fetch(safeUrl, {
         method: 'GET',
+        redirect: 'error',
         headers: {
           Range: 'bytes=0-0', // Request the first byte
         },
