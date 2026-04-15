@@ -31,11 +31,16 @@ interface PlayerProps {
   poster?: string;
 }
 
-/** Safely check if a URL belongs to youtube.com by parsing the hostname */
+/** Safely check if a URL belongs to YouTube domains by parsing the hostname */
 function isYouTubeUrl(url: string): boolean {
   try {
     const hostname = new URL(url).hostname;
-    return hostname === "youtube.com" || hostname.endsWith(".youtube.com");
+    return (
+      hostname === "youtube.com" ||
+      hostname.endsWith(".youtube.com") ||
+      hostname === "youtu.be" ||
+      hostname === "youtube-nocookie.com"
+    );
   } catch {
     return false;
   }
@@ -138,11 +143,11 @@ const Player = forwardRef(function Player(
 
   useEffect(() => {
     let videoUrl = src;
-    if (isYouTubeUrl(videoUrl)) {
-      return
-    }
     if (!videoUrl) {
       videoUrl = originalVideoUrl!;
+    }
+    if (isYouTubeUrl(videoUrl)) {
+      return
     }
     if (videoUrl) {
       isVideoUrlUsable(videoUrl).then((res: boolean) => {
