@@ -31,6 +31,16 @@ interface PlayerProps {
   poster?: string;
 }
 
+/** Safely check if a URL belongs to youtube.com by parsing the hostname */
+function isYouTubeUrl(url: string): boolean {
+  try {
+    const hostname = new URL(url).hostname;
+    return hostname === "youtube.com" || hostname.endsWith(".youtube.com");
+  } catch {
+    return false;
+  }
+}
+
 const Player = forwardRef(function Player(
   { title, id, src, type, subtitles, language, poster }: PlayerProps,
   ref: ForwardedRef<MediaPlayerInstance>
@@ -123,12 +133,12 @@ const Player = forwardRef(function Player(
     updateVideoInfo: state.updateAll,
   }));
   const realVideoType = useMemo(() => {
-    return src.includes('youtube.com') ? 'video/youtube' : 'video/mp4'
+    return isYouTubeUrl(src) ? 'video/youtube' : 'video/mp4'
   }, [src])
 
   useEffect(() => {
     let videoUrl = src;
-    if (videoUrl.includes('youtube.com')) {
+    if (isYouTubeUrl(videoUrl)) {
       return
     }
     if (!videoUrl) {
