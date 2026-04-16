@@ -149,10 +149,23 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
             setIsSubmitting(false);
             return;
           }
-        } else if (detectedUrl.includes("youtube.com")) {
+        } else if (detectedUrl.includes("youtube.com") || detectedUrl.includes("youtu.be")) {
           try {
-            const params = new URLSearchParams(detectedUrl.split("?")[1]);
-            const id = params.get("v");
+            const urlObj = new URL(detectedUrl);
+            const allowedHostnames = ['youtube.com', 'www.youtube.com', 'm.youtube.com', 'youtu.be'];
+            if (!allowedHostnames.includes(urlObj.hostname)) {
+              toast.error(t("error.invalid_url"));
+              setIsSubmitting(false);
+              return;
+            }
+            let id: string | null = null;
+            if (urlObj.hostname === "youtu.be") {
+              // youtu.be short URLs store the video ID in the path
+              id = urlObj.pathname.slice(1);
+            } else {
+              // youtube.com URLs store the video ID in the query parameter
+              id = urlObj.searchParams.get("v");
+            }
             if (!id) {
               toast.error(t("error.invalid_youtube_url"));
               setIsSubmitting(false);
@@ -178,7 +191,10 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
               isYoutube = true;
             }
           } catch (e) {
-            logger.error(t("error.get_real_url_failed"));
+            logger.error(t("error.invalid_url"));
+            toast.error(t("error.invalid_url"));
+            setIsSubmitting(false);
+            return;
           }
         }
 
