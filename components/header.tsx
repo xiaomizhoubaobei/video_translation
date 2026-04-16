@@ -149,7 +149,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
             setIsSubmitting(false);
             return;
           }
-        } else if (detectedUrl.includes("youtube.com")) {
+        } else if (/^(?:.*\.)?youtube\.com$/.test(new URL(detectedUrl).hostname) || new URL(detectedUrl).hostname === "youtu.be") {
           try {
             const params = new URLSearchParams(detectedUrl.split("?")[1]);
             const id = params.get("v");
