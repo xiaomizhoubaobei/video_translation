@@ -53,6 +53,7 @@ function isPrivateHost(hostname: string): boolean {
     if (a === 192 && b === 168) return true
     if (a === 169 && b === 254) return true // Link-local
     if (a === 127) return true // Loopback range
+    if (a === 100 && b >= 64 && b <= 127) return true // CGNAT (100.64.0.0/10)
     return false
   }
 
