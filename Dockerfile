@@ -1,4 +1,4 @@
-FROM node:25.9 AS base
+FROM node:25.9-bookworm AS base
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -22,7 +22,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 
-RUN corepack enable yarn && yarn run build
+RUN corepack enable && yarn run build
 
 
 # Production image, copy all files and run next
