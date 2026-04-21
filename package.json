@@ -22,7 +22,7 @@
     "@vime/core": "^5.4.1",
     "@vime/react": "^5.4.1",
     "ai": "^5.0.52",
-    "axios": "^1.7.7",
+    "axios": "^1.15.2",
     "axios-retry": "^4.5.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
