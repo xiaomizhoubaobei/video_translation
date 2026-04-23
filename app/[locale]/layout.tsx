@@ -8,11 +8,12 @@ import "../globals.css";
 
 export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: Readonly<{
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
   const messages = await getMessages();
   const showBrand = process.env.NEXT_PUBLIC_SHOW_BRAND === "true";
   return (

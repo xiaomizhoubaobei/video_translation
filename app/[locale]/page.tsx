@@ -14,7 +14,7 @@ const languages = [
 ];
 
 type Props = {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
@@ -49,8 +49,10 @@ export async function generateMetadata(
     },
   };
 
+  const resolvedParams = await params;
+
   let locale = detectLocale(
-    (searchParams && (searchParams.lang as string)) || params.locale || "en"
+    (searchParams && (searchParams.lang as string)) || resolvedParams.locale || "en"
   ) as keyof typeof info;
 
   if (!(locale in info)) {
