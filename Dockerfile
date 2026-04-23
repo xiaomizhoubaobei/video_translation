@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package.json yarn.lock* ./
 
 # 安装并启用 corepack，然后使用 yarn 安装依赖
-RUN npm install -g corepack && corepack enable && yarn --frozen-lockfile
+RUN npm install -g corepack && corepack enable && yarn install --no-lockfile --network-timeout 600000
 
 # 仅在需要时重新构建源代码
 FROM base AS builder
@@ -15,9 +15,6 @@ WORKDIR /app
 
 # 构建参数：默认共享目录路径
 ARG NEXT_PUBLIC_DEFAULT_SHARE_DIR=/mnt/azure/shared
-
-RUN pwd
-RUN ls -a
 
 # 从 deps 阶段复制 node_modules
 COPY --from=deps /app/node_modules ./node_modules

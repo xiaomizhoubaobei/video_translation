@@ -15,7 +15,7 @@ import { type RefObject, useCallback, useMemo, useRef, useState } from "react";
 export const SubtitleDrawer = ({
   player,
 }: {
-  player: RefObject<MediaPlayerInstance>;
+  player: RefObject<MediaPlayerInstance | null>;
 }) => {
   const t = useTranslations("drawer");
   const {

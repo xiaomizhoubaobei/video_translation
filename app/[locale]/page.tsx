@@ -22,7 +22,7 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const headers_ = headers();
+  const headers_ = await headers();
   const hostname = headers_.get("host");
 
   const previousImages = (await parent).openGraph?.images || [];

@@ -14,14 +14,14 @@ const languages = [
 
 type Props = {
   params: Promise<{ locale: string }>;
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const headers_ = headers();
+  const headers_ = await headers();
   const hostname = headers_.get("host");
 
   const previousImages = (await parent).openGraph?.images || [];
@@ -50,8 +50,9 @@ export async function generateMetadata(
 
   const resolvedParams = await params;
 
+  const resolvedSearchParams = await searchParams;
   let locale = detectLocale(
-    (searchParams && (searchParams.lang as string)) || resolvedParams.locale || "en"
+    (resolvedSearchParams && (resolvedSearchParams.lang as string)) || resolvedParams.locale || "en"
   ) as keyof typeof info;
 
   if (!(locale in info)) {
