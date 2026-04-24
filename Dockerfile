@@ -1,4 +1,4 @@
-FROM node:lts AS base
+FROM node:lts@sha256:e9891237dfbb1de60ce19e9ff9fac5d73ad9c37da303ad72ff2a425ad1057e71 AS base
 
 # 仅在需要时安装依赖
 FROM base AS deps
