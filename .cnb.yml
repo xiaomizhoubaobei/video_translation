@@ -73,4 +73,3 @@ main:
             branch: main
             git_user: ${GIT_USERNAME}
             git_email: ${GIT_EMAIL}
-            force: true
