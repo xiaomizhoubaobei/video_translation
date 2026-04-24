@@ -1,0 +1,130 @@
+name: Check Base Image Digest
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # 每周日 00:00 UTC 定时执行
+  workflow_dispatch:      # 支持手动触发
+
+permissions:
+  contents: read
+  issues: write           # 新增：创建 Issue 需要写入权限
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      # 步骤1：检出代码仓库
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      # 步骤2：安装 crane 工具
+      - name: Setup crane
+        uses: imjasonh/setup-crane@v0.4
+
+      # 步骤3：从 Dockerfile 中提取当前使用的镜像摘要
+      - name: Get current digest from Dockerfile
+        id: current
+        run: |
+          DIGEST=$(grep -oP '^FROM\s+\S+@\Ksha256:[a-f0-9]+' Dockerfile || true)
+          if [ -z "$DIGEST" ]; then
+            echo "digest=none" >> $GITHUB_OUTPUT
+          else
+            echo "digest=$DIGEST" >> $GITHUB_OUTPUT
+          fi
+
+      # 步骤4：通过 crane 获取远程最新镜像摘要
+      - name: Get latest digest via crane
+        id: latest
+        run: |
+          LATEST=$(crane digest node:lts)
+          echo "digest=$LATEST" >> $GITHUB_OUTPUT
+
+      # 步骤5：比较并创建 Issue（如有变化）
+      - name: Compare and notify
+        id: compare
+        run: |
+          CURRENT="${{ steps.current.outputs.digest }}"
+          LATEST="${{ steps.latest.outputs.digest }}"
+
+          echo "Current: $CURRENT"
+          echo "Latest:  $LATEST"
+
+          if [ "$CURRENT" = "none" ]; then
+            echo "::error::Dockerfile 未使用固定摘要（digest），请锁定基础镜像版本"
+            exit 1
+          fi
+
+          if [ "$CURRENT" != "$LATEST" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "current_digest=$CURRENT" >> $GITHUB_OUTPUT
+            echo "latest_digest=$LATEST" >> $GITHUB_OUTPUT
+            echo "::warning::基础镜像摘要已变更！"
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "✅ 镜像摘要匹配，基础镜像未更新"
+          fi
+
+      # 步骤6：创建 Issue 通知更新（仅当 digest 变化时）
+      - name: Create Issue for base image update
+        if: steps.compare.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const currentDigest = '${{ steps.compare.outputs.current_digest }}';
+            const latestDigest = '${{ steps.compare.outputs.latest_digest }}';
+            const issueTitle = '📦 基础镜像 node:lts 需要更新';
+
+            // 检查是否已存在相同标题的开放 Issue，避免重复创建
+            const { data: existingIssues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              creator: 'github-actions[bot]'
+            });
+
+            const duplicate = existingIssues.find(issue =>
+              issue.title === issueTitle
+            );
+
+            if (duplicate) {
+              console.log(`已存在相同 Issue #${duplicate.number}，跳过创建`);
+              return;
+            }
+
+            // 创建新 Issue
+            const body = `## 🔔 基础镜像更新提醒
+
+\`node:lts\` 基础镜像已发布新版本，当前 Dockerfile 使用的摘要已过期。
+
+| 项目 | 摘要值 |
+|------|--------|
+| **当前使用** | \`${currentDigest}\` |
+| **最新版本** | \`${latestDigest}\` |
+
+### 建议操作
+
+1. 更新 Dockerfile 中的 \`FROM\` 指令：
+   \`\`\`dockerfile
+   FROM node:lts@${latestDigest}
+   \`\`\`
+
+2. 在本地或 CI 环境中重新构建镜像，验证兼容性
+
+3. 运行测试套件，确认应用正常工作
+
+4. 合并更新后关闭此 Issue
+
+---
+
+> 此 Issue 由 GitHub Actions 自动创建，检测到变化时间：${new Date().toISOString()}
+`;
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: issueTitle,
+              body: body,
+              labels: ['dependencies', 'docker']
+            });
+
+            console.log('Issue 创建成功');
