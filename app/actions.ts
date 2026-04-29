@@ -1,7 +1,7 @@
 "use server";
-import { readFile, realpath } from "fs/promises";
+import { readFile } from "fs/promises";
 import ky from "ky";
-import { join, resolve } from "path";
+import { basename, join } from "path";
 // Root Interface representing the entire JSON response
 interface ApiResponse {
   code: number;
@@ -77,26 +77,36 @@ const SHARE_DIR = join(
   process.env.NEXT_PUBLIC_DEFAULT_SHARE_DIR || "shared"
 );
 
-export const getVideoInfo = async (id: string) => {
-  // Validate that id contains only safe characters to prevent path traversal
-  if (!/^[a-zA-Z0-9_-]+$/.test(id)) {
+/**
+ * Validates and sanitizes a share ID for safe file path construction.
+ * Uses path.basename() to strip any directory components from user input,
+ * preventing path traversal attacks (CWE-22).
+ *
+ * @param id - The user-provided share ID
+ * @returns The sanitized filename (without directory components)
+ * @throws Error if the ID is invalid or contains only invalid characters
+ */
+function sanitizeShareId(id: string): string {
+  // Strip any directory components (/, .., etc.) using path.basename
+  const sanitized = basename(id);
+  // Additional validation: only allow alphanumeric, hyphens, and underscores
+  if (!/^[a-zA-Z0-9_-]+$/.test(sanitized) || sanitized.length === 0) {
     throw new Error("Invalid share ID");
   }
-  const filePath = resolve(SHARE_DIR, `${id}.json`);
+  return sanitized;
+}
+
+export const getVideoInfo = async (id: string) => {
+  // Sanitize the user-provided ID to prevent path traversal
+  const safeId = sanitizeShareId(id);
+
   try {
-    // Resolve the real path and verify it is within SHARE_DIR
-    const resolvedShareDir = await realpath(SHARE_DIR);
-    const resolvedFilePath = await realpath(resolve(SHARE_DIR, `${id}.json`));
-    if (!resolvedFilePath.startsWith(resolvedShareDir)) {
-      throw new Error("Access denied");
-    }
-    const data = await readFile(resolvedFilePath, "utf8");
+    // Construct file path using safeId (which has no directory components)
+    const filePath = join(SHARE_DIR, `${safeId}.json`);
+    const data = await readFile(filePath, "utf8");
     return JSON.parse(data);
   } catch (error) {
     if (error instanceof Error && error.message === "Invalid share ID") {
-      throw error;
-    }
-    if (error instanceof Error && error.message === "Access denied") {
       throw error;
     }
     throw new Error("File read failed");
