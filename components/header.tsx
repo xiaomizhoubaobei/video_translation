@@ -41,6 +41,20 @@ const languages = [
   { key: "ko", label: "한국어" },
 ];
 
+// Platform hostname allowlists — defined at module scope to avoid re-creation on every render.
+// (CodeQL #25: replaces insecure substring checks with hostname whitelist validation)
+const ALLOWED_PROTOCOLS = ["http:", "https:"];
+const DOUYIN_HOSTNAMES = ["douyin.com", "www.douyin.com", "v.douyin.com"];
+const TIKTOK_HOSTNAMES = ["tiktok.com", "www.tiktok.com", "vm.tiktok.com"];
+const YOUTUBE_HOSTNAMES = [
+  "youtube.com",
+  "www.youtube.com",
+  "m.youtube.com",
+  "music.youtube.com",
+  "gaming.youtube.com",
+  "youtu.be",
+];
+
 interface HeaderProps {
   className?: string;
   isSubmitting?: boolean;
@@ -90,16 +104,20 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
         let parsedInputUrl: URL | null = null;
         try {
           parsedInputUrl = new URL(detectedUrl);
-        } catch {
+        } catch (error) {
+          console.error("Failed to parse URL:", detectedUrl, error);
           // URL parsing failed; will be caught by platform-specific checks below
         }
 
-        const youtubeHostnames = [
-          "youtube.com",
-          "www.youtube.com",
-          "m.youtube.com",
-          "youtu.be",
-        ];
+        // Validate URL protocol to prevent javascript:/data: XSS (CodeQL #25)
+        if (
+          parsedInputUrl !== null &&
+          !ALLOWED_PROTOCOLS.includes(parsedInputUrl.protocol)
+        ) {
+          toast.error(t("error.invalid_url"));
+          setIsSubmitting(false);
+          return;
+        }
 
         let tmpUrl = detectedUrl;
         let title = "";
@@ -107,7 +125,8 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
         let isTiktok = false;
         let isYoutube = false;
         if (
-          detectedUrl.includes("douyin") &&
+          parsedInputUrl !== null &&
+          DOUYIN_HOSTNAMES.includes(parsedInputUrl.hostname) &&
           !detectedUrl.endsWith(".mp3") &&
           !detectedUrl.includes("mime_type=video_mp4")
         ) {
@@ -136,7 +155,8 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
             return;
           }
         } else if (
-          detectedUrl.includes("tiktok") &&
+          parsedInputUrl !== null &&
+          TIKTOK_HOSTNAMES.includes(parsedInputUrl.hostname) &&
           !detectedUrl.endsWith(".mp3") &&
           !detectedUrl.includes("mime_type=video_mp4")
         ) {
@@ -166,7 +186,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
           }
         } else if (
           parsedInputUrl !== null &&
-          youtubeHostnames.includes(parsedInputUrl.hostname)
+          YOUTUBE_HOSTNAMES.includes(parsedInputUrl.hostname)
         ) {
           try {
             const urlObj = parsedInputUrl!;
@@ -209,6 +229,9 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
             return;
           }
         }
+        // Note: URLs not matching any platform hostname above (e.g. Bilibili,
+        // Xiaohongshu, generic URLs) fall through to the transcript() handler below,
+        // which performs its own platform detection and error handling.
 
         let data: TranscriptResult | null = null;
         try {
