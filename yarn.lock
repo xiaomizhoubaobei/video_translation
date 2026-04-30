@@ -2316,9 +2316,9 @@ postcss@8.4.31:
     source-map-js "^1.0.2"
 
 postcss@^8, postcss@^8.4.47:
-  version "8.5.9"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.9.tgz#f6ee9e0b94f0f19c97d2f172bfbd7fc71fe1cca4"
-  integrity sha512-7a70Nsot+EMX9fFU3064K/kdHWZqGVY+BADLyXc8Dfv+mTLLVl6JzJpPaCZ2kQL9gIJvKXSLMHhqdRRjwQeFtw==
+  version "8.5.10"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.10.tgz#8992d8c30acf3f12169e7c09514a12fed7e48356"
+  integrity sha512-pMMHxBOZKFU6HgAZ4eyGnwXF/EvPGGqUr0MnZ5+99485wwW41kW91A4LOGxSHhgugZmSChL5AlElNdwlNgcnLQ==
   dependencies:
     nanoid "^3.3.11"
     picocolors "^1.1.1"
@@ -2381,10 +2381,10 @@ react-universal-interface@^0.6.2:
   resolved "https://registry.yarnpkg.com/react-universal-interface/-/react-universal-interface-0.6.2.tgz#5e8d438a01729a4dbbcbeeceb0b86be146fe2b3b"
   integrity sha512-dg8yXdcQmvgR13RIlZbTRQOoUrDciFVoSBZILwjE2LFISxZZ8loVJKAkuzswl5js8BHda79bIb2b84ehU8IjXw==
 
-react-use-size@^3.0.3:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/react-use-size/-/react-use-size-3.0.4.tgz#0c90f51f2d2c792338ea583889a1c9d15fb7c162"
-  integrity sha512-LXTzdlUTzp3ozxuEI1cj1P53wf3CS01wEkkAXIBxnPi2Sbiw3FAyx8E9+gF14VSqZ1QtfCHLP0gW5ydV9plVCw==
+react-use-size@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/react-use-size/-/react-use-size-5.0.1.tgz#db5b474ff006b3fb503478391124b20d8466248c"
+  integrity sha512-3yus9/3o4A5kdpGtEXuUcgR2LWoTEpVIWeygewS4zH3rqeeQwOZrV3vfLGhbVNzsQyxaVpKlzGsLxErx9pACJA==
 
 react-use@^17.5.1:
   version "17.6.0"
