@@ -86,6 +86,21 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
 
         refresh();
 
+        // Pre-parse the input URL for secure hostname validation (CodeQL #25)
+        let parsedInputUrl: URL | null = null;
+        try {
+          parsedInputUrl = new URL(detectedUrl);
+        } catch {
+          // URL parsing failed; will be caught by platform-specific checks below
+        }
+
+        const youtubeHostnames = [
+          "youtube.com",
+          "www.youtube.com",
+          "m.youtube.com",
+          "youtu.be",
+        ];
+
         let tmpUrl = detectedUrl;
         let title = "";
         let isDouyin = false;
@@ -149,15 +164,12 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
             setIsSubmitting(false);
             return;
           }
-        } else if (detectedUrl.includes("youtube.com") || detectedUrl.includes("youtu.be")) {
+        } else if (
+          parsedInputUrl !== null &&
+          youtubeHostnames.includes(parsedInputUrl.hostname)
+        ) {
           try {
-            const urlObj = new URL(detectedUrl);
-            const allowedHostnames = ['youtube.com', 'www.youtube.com', 'm.youtube.com', 'youtu.be'];
-            if (!allowedHostnames.includes(urlObj.hostname)) {
-              toast.error(t("error.invalid_url"));
-              setIsSubmitting(false);
-              return;
-            }
+            const urlObj = parsedInputUrl!;
             let id: string | null = null;
             if (urlObj.hostname === "youtu.be") {
               // youtu.be short URLs store the video ID in the path
