@@ -84,7 +84,7 @@ jobs:
               with:
                 images: |
                   ${{ secrets.DOCKERHUB_USERNAME }}/video_translation
-                  ghcr.io/${{ github.repository }}/video_translation
+                  ghcr.io/${{ github.repository }}
                   crpi-wk2d8umombj539de.cn-shanghai.personal.cr.aliyuncs.com/xmz-1/video_translation
                 # 关闭所有默认生成器
                 flavor: |
