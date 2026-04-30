@@ -2381,10 +2381,10 @@ react-universal-interface@^0.6.2:
   resolved "https://registry.yarnpkg.com/react-universal-interface/-/react-universal-interface-0.6.2.tgz#5e8d438a01729a4dbbcbeeceb0b86be146fe2b3b"
   integrity sha512-dg8yXdcQmvgR13RIlZbTRQOoUrDciFVoSBZILwjE2LFISxZZ8loVJKAkuzswl5js8BHda79bIb2b84ehU8IjXw==
 
-react-use-size@^3.0.3:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/react-use-size/-/react-use-size-3.0.4.tgz#0c90f51f2d2c792338ea583889a1c9d15fb7c162"
-  integrity sha512-LXTzdlUTzp3ozxuEI1cj1P53wf3CS01wEkkAXIBxnPi2Sbiw3FAyx8E9+gF14VSqZ1QtfCHLP0gW5ydV9plVCw==
+react-use-size@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/react-use-size/-/react-use-size-5.0.1.tgz#db5b474ff006b3fb503478391124b20d8466248c"
+  integrity sha512-3yus9/3o4A5kdpGtEXuUcgR2LWoTEpVIWeygewS4zH3rqeeQwOZrV3vfLGhbVNzsQyxaVpKlzGsLxErx9pACJA==
 
 react-use@^17.5.1:
   version "17.6.0"
@@ -2801,10 +2801,10 @@ tweetnacl@^0.14.3:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha512-KXXFFdAbFXY4geFIwoyNK+f5Z1b7swfXABfL7HXCmoIWMKU3dmS26672A4EeQtDzLKy7SXmfBu51JolvEKwtGA==
 
-typescript@^5:
-  version "5.9.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.3.tgz#5b4f59e15310ab17a216f5d6cf53ee476ede670f"
-  integrity sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==
+typescript@^6:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.3.tgz#90251dc007916e972786cb94d74d15b185577d21"
+  integrity sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==
 
 undici-types@~6.21.0:
   version "6.21.0"
