@@ -46,9 +46,9 @@
 
 ## 开发&部署
 1. 克隆项目 `git clone https://github.com/302ai/302_video_translation`
-2. 安装依赖 `pnpm install`
+2. 安装依赖 `yarn install`
 3. 配置302的API KEY 参考.env.example
-4. 运行项目 `pnpm dev`
+4. 运行项目 `yarn dev`
 5. 打包部署 `docker build -t video-translation . && docker run -p 3000:3000 video-translation`
 
 

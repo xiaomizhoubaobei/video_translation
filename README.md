@@ -47,9 +47,9 @@ With AI Video Real-time Translation, anyone can efficiently access video informa
 
 ## Development & Deployment
 1. Clone the project `git clone https://github.com/302ai/302_video_translation`
-2. Install dependencies `pnpm install`
+2. Install dependencies `yarn install`
 3. Configure 302's API KEY as per .env.example
-4. Run the project `pnpm dev`
+4. Run the project `yarn dev`
 5. Build and deploy `docker build -t video-translation . && docker run -p 3000:3000 video-translation`
 
 
