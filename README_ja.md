@@ -42,9 +42,9 @@ AIビデオリアルタイム翻訳を通じて、誰でも効率的にビデオ
 
 ## 開発＆デプロイ
 1. プロジェクトをクローン `git clone https://github.com/302ai/302_video_translation`
-2. 依存関係をインストール `pnpm install`
+2. 依存関係をインストール `yarn install`
 3. 302のAPIキーを設定 `.env.exampleを参照`
-4. プロジェクトを実行 `pnpm dev`
+4. プロジェクトを実行 `yarn dev`
 5. ビルドおよびデプロイ `docker build -t video-translation . && docker run -p 3000:3000 video-translation`
 
 
