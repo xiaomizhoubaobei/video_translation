@@ -94,30 +94,30 @@ jobs:
             // 创建新 Issue
             const body = `## 🔔 基础镜像更新提醒
 
-\`node:lts\` 基础镜像已发布新版本，当前 Dockerfile 使用的摘要已过期。
+            \`node:lts\` 基础镜像已发布新版本，当前 Dockerfile 使用的摘要已过期。
 
-| 项目 | 摘要值 |
-|------|--------|
-| **当前使用** | \`${currentDigest}\` |
-| **最新版本** | \`${latestDigest}\` |
+            | 项目 | 摘要值 |
+            |------|--------|
+            | **当前使用** | \`${currentDigest}\` |
+            | **最新版本** | \`${latestDigest}\` |
 
-### 建议操作
+            ### 建议操作
 
-1. 更新 Dockerfile 中的 \`FROM\` 指令：
-   \`\`\`dockerfile
-   FROM node:lts@${latestDigest}
-   \`\`\`
+            1. 更新 Dockerfile 中的 \`FROM\` 指令：
+               \`\`\`dockerfile
+               FROM node:lts@${latestDigest}
+               \`\`\`
 
-2. 在本地或 CI 环境中重新构建镜像，验证兼容性
+            2. 在本地或 CI 环境中重新构建镜像，验证兼容性
 
-3. 运行测试套件，确认应用正常工作
+            3. 运行测试套件，确认应用正常工作
 
-4. 合并更新后关闭此 Issue
+            4. 合并更新后关闭此 Issue
 
----
+            ---
 
-> 此 Issue 由 GitHub Actions 自动创建，检测到变化时间：${new Date().toISOString()}
-`;
+            > 此 Issue 由 GitHub Actions 自动创建，检测到变化时间：${new Date().toISOString()}
+            `;
 
             await github.rest.issues.create({
               owner: context.repo.owner,
