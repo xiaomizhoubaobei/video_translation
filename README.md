@@ -35,7 +35,7 @@ Quickly share wonderful video content with friends.
 
 With AI Video Real-time Translation, anyone can efficiently access video information! 🎉🎥 Let’s explore the new world of AI-driven information acquisition together! 🌟🚀
 
-## 🚩 Future Update Plans 
+## 🚩 Future Update Plans
 - [ ] Increase support for more niche languages
 - [ ] Expand the number of video platforms that are compatible
 - [ ] Optimize in the multi-language professional fields
