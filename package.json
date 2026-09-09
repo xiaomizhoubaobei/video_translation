@@ -28,7 +28,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "dexie": "^4.0.8",
-    "es-toolkit": "^1.46.1",
+    "es-toolkit": "^1.52.0",
     "flowbite": "^2.5.1",
     "https-proxy-agent": "^9.1.0",
     "immer": "^11.1.6",
