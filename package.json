@@ -21,7 +21,7 @@
     "@vidstack/react": "^1.12.9",
     "@vime/core": "^5.4.1",
     "@vime/react": "^5.4.1",
-    "ai": "^5.0.52",
+    "ai": "^7.0.95",
     "axios": "^1.18.0",
     "axios-retry": "^4.5.0",
     "class-variance-authority": "^0.7.0",
