@@ -1758,10 +1758,10 @@ iconv-lite@^0.7.2:
   dependencies:
     safer-buffer ">= 2.1.2 < 3.0.0"
 
-icu-minify@^4.14.2:
-  version "4.14.2"
-  resolved "https://registry.yarnpkg.com/icu-minify/-/icu-minify-4.14.2.tgz#a92f77aa9cc6b7df7a599feaa902f352deff14c4"
-  integrity sha512-2eJ9ooR8xXWbe0IivG58TFL96AUp5ts8FJ4qSMzn8YRJXpLmtPNWcUkIZ8t3iz0+eaVzG+mN+rdNIigHDvYa2Q==
+icu-minify@^4.14.4, icu-minify@^4.14.5:
+  version "4.14.5"
+  resolved "https://registry.yarnpkg.com/icu-minify/-/icu-minify-4.14.5.tgz#bd1971dfa29481e841377fbea88adb81319b9fbc"
+  integrity sha512-5RQ5fP5inR+VZRTR4KwYBzy217ua4E9lxBT+zFHZcJv0dTOtRs9xXECSIWMQHAfmd0Hq2RXSSP2Gmyw/oQQY6A==
   dependencies:
     "@formatjs/icu-messageformat-parser" "^3.4.0"
 
@@ -1983,15 +1983,15 @@ negotiator@^1.0.0:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-1.0.0.tgz#b6c91bb47172d69f93cfd7c357bbb529019b5f6a"
   integrity sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg==
 
-next-intl-swc-plugin-extractor@4.14.2:
-  version "4.14.2"
-  resolved "https://registry.yarnpkg.com/next-intl-swc-plugin-extractor/-/next-intl-swc-plugin-extractor-4.14.2.tgz#13745eb526ef8160dd38f9c974117e39a1a45a7a"
-  integrity sha512-R+i9Xw6XKyn1QVx+I5IDZQNGQBwT79ugGwzbuJudgejob/IYnXXrRKMlLhmMxLdKH8jUWh92nqwNnp+5rtSVJA==
+next-intl-swc-plugin-extractor@4.14.4:
+  version "4.14.4"
+  resolved "https://registry.yarnpkg.com/next-intl-swc-plugin-extractor/-/next-intl-swc-plugin-extractor-4.14.4.tgz#10b38c5b8251100c77eb7b01ea05085f8e4aff16"
+  integrity sha512-VjbyHQuo0Cq6NRfyHjBoMFvD4ltqvpY/JJcqQ+SBBp9DB1OXhUEUQU3aMJeJb0YJ4LwzTu4Xx2Rk5LYZcvkFEA==
 
-next-intl@^4.13.6:
-  version "4.14.2"
-  resolved "https://registry.yarnpkg.com/next-intl/-/next-intl-4.14.2.tgz#b2edcaf8b4baf74e0ead9888412ec33e0f0880f0"
-  integrity sha512-rIq8me1uOa2qXnttJ6dUGYnHHL63Rh1FAIIDTJP5av5KSBmUzNBS17QAi07QDrUMY6KxFNeoCTRzSZRPUc97lg==
+next-intl@^4.14.4:
+  version "4.14.4"
+  resolved "https://registry.yarnpkg.com/next-intl/-/next-intl-4.14.4.tgz#15f4543a6209a6fbc9535e094624ab5f205840b7"
+  integrity sha512-4tbronSt16UPbDyOPFFqpUA2Clg1Ie8x+GuhgEt02HW/HrqseaXPp15XlqqEcYpYL4D8zVdvdHyIbS/pDe3L/w==
   dependencies:
     "@eloqnt/config" "^0.1.0"
     "@eloqnt/format-json" "^0.1.0"
@@ -1999,10 +1999,10 @@ next-intl@^4.13.6:
     "@formatjs/intl-localematcher" "^0.8.1"
     "@parcel/watcher" "^2.4.1"
     "@swc/core" "~1.16.0"
-    icu-minify "^4.14.2"
+    icu-minify "^4.14.4"
     negotiator "^1.0.0"
-    next-intl-swc-plugin-extractor "4.14.2"
-    use-intl "^4.14.2"
+    next-intl-swc-plugin-extractor "4.14.4"
+    use-intl "^4.14.4"
 
 next@16.3.3:
   version "16.3.3"
@@ -2551,14 +2551,14 @@ use-callback-ref@^1.3.3:
   dependencies:
     tslib "^2.0.0"
 
-use-intl@^4.14.2:
-  version "4.14.2"
-  resolved "https://registry.yarnpkg.com/use-intl/-/use-intl-4.14.2.tgz#d5ae00464603708ef0bbb8b6ce0da832f3bf26a2"
-  integrity sha512-XffvbD4q4uZjRbuO8CgK6Ei8hvYn7aegoSad2YPho1ZRjYEs+k4erhYq0vfm5ttF4lnja3riXCeJrtUdNdQG3g==
+use-intl@^4.14.4:
+  version "4.14.5"
+  resolved "https://registry.yarnpkg.com/use-intl/-/use-intl-4.14.5.tgz#3f85f8677383bbe9ec2745aef5be034ecce4ef20"
+  integrity sha512-NNGSInks18BAasPgnMrnahNkEZSkWpbWE70IcEDWPUZwS39tVuDB/Vo6J3FaDnYwwKioR33JfWFOzEFnhuJcJw==
   dependencies:
     "@formatjs/fast-memoize" "^3.1.0"
     "@schummar/icu-type-parser" "1.21.5"
-    icu-minify "^4.14.2"
+    icu-minify "^4.14.5"
     intl-messageformat "^11.1.0"
 
 use-sidecar@^1.1.3:
